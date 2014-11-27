@@ -54,11 +54,11 @@ print(n, triangleNumber(n));
 
 /*
 
-royhowie:javascript royhowie$ time jsc 012.js
-12375 76576500
+	royhowie:javascript royhowie$ time jsc 012.js
+	12375 76576500
 
-real	0m0.354s
-user	0m0.355s
-sys		0m0.008s
+	real	0m0.354s
+	user	0m0.355s
+	sys		0m0.008s
 
 */
