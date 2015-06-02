@@ -3,5 +3,3 @@ skipped (javascript):
 - #14
 - #15
 - #18
-- #23
-- #24
