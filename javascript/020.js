@@ -1,75 +1,75 @@
 // should probably redo this one
 /*
-	Problem #20: Factorial digit sum
-	https://projecteuler.net/problem=20
-	
-	n! means n × (n − 1) × ... × 3 × 2 × 1
+    Problem #20: Factorial digit sum
+    https://projecteuler.net/problem=20
+    
+    n! means n × (n − 1) × ... × 3 × 2 × 1
 
-	For example,
+    For example,
 
-		10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,
+        10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,
 
-	and the sum of the digits in the number 10! is
+    and the sum of the digits in the number 10! is
 
-		3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
+        3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 
-	Find the sum of the digits in the number 100!
+    Find the sum of the digits in the number 100!
 
 */
 
 // can't handle double digit multiplication
 var brewMultiply = function (arr, n) {
-	for (var i = arr.length - 1; i > -1; i--) {
-		arr[i] = arr[i] * n;
-		if (arr[i] > 9) {
-			var t = (arr[i]/10) | 0;
-			if (i == arr.length - 1) {
-				arr.push(t);
-			} else {
-				arr[i + 1] += t
-			}
-			arr[i] %= 10;
-		}
-	}
+    for (var i = arr.length - 1; i > -1; i--) {
+        arr[i] = arr[i] * n;
+        if (arr[i] > 9) {
+            var t = (arr[i]/10) | 0;
+            if (i == arr.length - 1) {
+                arr.push(t);
+            } else {
+                arr[i + 1] += t
+            }
+            arr[i] %= 10;
+        }
+    }
 
-	for (var i = arr.length - 1; i > -1; i--) {
-		if (arr[i] > 9) {
-			var t = (arr[i]/10) | 0;
-			if (i == arr.length - 1) {
-				arr.push(t);
-			} else {
-				arr[i + 1] += t
-			}
-			arr[i] %= 10;
-		}
-	}
+    for (var i = arr.length - 1; i > -1; i--) {
+        if (arr[i] > 9) {
+            var t = (arr[i]/10) | 0;
+            if (i == arr.length - 1) {
+                arr.push(t);
+            } else {
+                arr[i + 1] += t
+            }
+            arr[i] %= 10;
+        }
+    }
 
-	return arr;
+    return arr;
 }
 
 var factorial = function (n) {
-	var arr = [1];
-	for (var i = 2; i < n + 1; i++) {
-		arr = brewMultiply(arr, i);
-	}
-	return arr;
+    var arr = [1];
+    for (var i = 2; i < n + 1; i++) {
+        arr = brewMultiply(arr, i);
+    }
+    return arr;
 }
 
 // var sum = factorial(100).reduce(function (p, c) {
-// 	return p + c;
+//  return p + c;
 // });
 
 // print(sum);
 
 /*
 
-	royhowie:javascript royhowie$ date && time jsc 020.js
-	Wed Nov 26 02:08:07 EST 2014
-	6327
+    royhowie:javascript royhowie$ date && time jsc 020.js
+    Wed Nov 26 02:08:07 EST 2014
+    6327
 
-	real	0m0.010s
-	user	0m0.006s
-	sys		0m0.004s
+    real    0m0.010s
+    user    0m0.006s
+    sys     0m0.004s
 */
 
 //+ Jonas Raoni Soares Silva
@@ -214,12 +214,12 @@ with({$: BigNumber, o: BigNumber.prototype}){
 
 var n = new BigNumber(1);
 for (var i = 2; i < 101; i++) {
-	n = n.multiply(new BigNumber(i));
+    n = n.multiply(new BigNumber(i));
 }
 print(n);
 
 var sum = n.toString().split("").reduce(function (p, c) {
-	return parseInt(p) + parseInt(c);
+    return parseInt(p) + parseInt(c);
 });
 
 print(sum);
